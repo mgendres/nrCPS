@@ -1,0 +1,2 @@
+Create a Makefile
+Remove KineticArg from contructors of Interaction class; introduce a mass parameter to InteractionArg instead

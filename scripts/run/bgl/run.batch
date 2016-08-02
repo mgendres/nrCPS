@@ -1,0 +1,32 @@
+# @ job_type = bluegene
+# @ class = long
+#
+# The executable  that will run your parallel application should always be specified as per the next line.
+# @ executable = /bgl/BlueLight/ppcfloor/bglsys/bin/mpirun
+#
+# Run on 1024 nodes using partition B01KTB01.
+# Specify partition using the following statement. This statement is the only way a partition should ever be 
+# specified in a LoadLeveler job control file.
+# The partition you designate here indicates the number of nodes, so note that we do not specify a
+# desired number of nodes anywhere in the job control file.
+# @ bg_size = 32
+#
+# Provide full path to the executable of your parallel application.
+# The mpirun command I have been using before loadleveler
+#
+# @ arguments = -label -verbose 1 -mode VN -np 64 -env "BG_MAPPING=TXYZ" -exe /gpfs/home2/mendres/nrCPS_v2_0_6/production_mpi/slater_det2_reduce/a.out -cwd /gpfs/home2/mendres/nrCPS_v2_0_6/production_mpi/slater_det2_reduce/ -args "/gpfs/home2/mendres/nrCPS_v2_0_6/production_mpi/slater_det2_reduce/ -qmp-geom native"
+#
+# initialdir (see the next active line) will be used as the working directory for this batch job. 
+# @ initialdir = /gpfs/home2/mendres/nrCPS_v2_0_6/production_mpi/slater_det2_reduce/
+#
+# If for example your jobid is 82, your output and error will be written in
+# directory /home/johndoe/app1, to files 82.out and 82.err respectively.
+# @ input = /dev/null
+# @ output = $(jobid).out
+# @ error = $(jobid).err
+# 
+# Maximum wall clock time for job will be 5 minutes.
+# @ wall_clock_limit = 0:10:00
+#
+# @ notification = complete
+# @ queue

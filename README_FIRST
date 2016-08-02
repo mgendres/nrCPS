@@ -1,0 +1,130 @@
+Welcome to the non-relativistic Columbia Physics System (nrCPS)!
+The name for this code is borrowed from the lattice QCD code, CPS, used and maintained by the RBC/RBCUKQCD collaborations.
+
+====COMPILING AND RUNNING NOTES FOR A SINGLE NODE====
+
+This code is written in C and C++; the following notes assume you have gcc/g++ installed on your computer (or mpicc/mpicxx for the mpi production codes).
+
+To create the nrCPS++ library:
+
+1) edit the file create_lib.sh
+
+2) run: ./create_lib.sh
+
+This should create the library file called nrCPS.a
+
+To compile one of the test programs, run the script:
+
+3) ../create_binary.sh
+
+from the test program directory. This will create a binary called a.out
+
+To run the test program, type:
+
+4) ./a.out
+
+====COMPILING AND RUNNING NOTES FOR qsimXX CLUSTER====
+
+1) edit create_lib.sh and create_binary.sh:
+
+CXX=/home/rdm/sfw/mpich2/mpich2-1.0.7-install/bin/mpicxx
+
+2) run compile scripts
+
+3) To run multiple threads on a single machine run:
+
+/home/rdm/sfw/mpich2/mpich2-1.0.7-install/bin/mpd &
+
+and then your program:
+
+/home/rdm/sfw/mpich2/mpich2-1.0.7-install/bin/mpirun -np 8 ./a.out
+
+4) To run on multiple machines, for p nodes and q cores/node use the commands:
+
+mpdboot -n p -f mpd.hosts
+mpdtrace
+mpiexec -n p*q ./a.out
+mpdallexit
+
+note that mpd.host contains a list of at least p host names.
+
+====CROSS-COMPILING NOTES FOR NEW YORK BLUE (BG/L)====
+
+1) First compile and install FFTW using
+
+MPICC=/bgl/BlueLight/ppcfloor/bglsys/bin/mpicc
+./configure --enable-mpi --prefix=$HOME/libraries/fftw-3.2.2
+gmake
+gmake install
+
+2) edit create_lib.sh:
+
+CXX=mpicxx
+
+3) edit create_binary.sh:
+
+CXX=mpicxx
+
+====COMPILING NOTES FOR HYAK====
+
+1) First start an interactive session on a compute node
+
+2) Compile and install FFTW using
+
+MPICC=picc
+./configure --enable-mpi --prefix=$HOME/libraries/fftw-3.2.2
+gmake
+gmake install
+
+3) edit create_lib.sh:
+
+CXX=mpicxx
+
+4) edit create_binary.sh:
+
+CXX=mpicxx
+
+====COMPILING NOTES FOR DIRAC GPU CLUSTER====
+
+1) Uncomment USE_GPU cimpiler directive in config.h
+
+2) Log onto carver and run:
+
+module purge
+module load gcc
+module load openmpi-gcc
+module load cuda
+
+3) ./scripts/compile/create_cuda_lib.sh
+
+For more info, also try:
+
+nvcc --compile -O3 <file>.cu -I../../../include/ -arch sm_13 --ptxas-options=-v --maxrregcount=100
+
+====STARTING FRESH====
+
+To delete all libraries and binaries, run:
+
+./clean.sh
+
+====DEBUGGING AND MEMORY USE====
+
+A useful tool for detecting memory leaks/use and profiling is valgrind:
+
+http://valgrind.org/
+
+The following tools are included:
+
+1) To profile memory use, run:
+
+valgrind --tool=massif ./a.out
+
+2) To detect memory leaks, access of unallocated memory locations, etc.,, run:
+
+valgrind --leak-check=yes ./a.out
+
+3) Profiling can be done with
+
+valgrind --tool=callgrind ./a.out
+callgrind_annotate [options] callgrind.out.<pid>
+

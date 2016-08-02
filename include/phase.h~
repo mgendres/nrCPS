@@ -1,0 +1,27 @@
+#include "arg.h"
+#include "fourier.h"
+
+#ifndef INCLUDED_PHASE
+#define INCLUDED_PHASE
+
+class Phase
+{
+  private:
+    int vol;
+    Float* phase;
+
+    Phase& operator=(const Phase&);
+    Phase(const Phase&);
+
+  public:
+    explicit Phase(Float*); // Use for arbitrary phases (for instance, to position SHO wave function in the center of the lattice)
+    explicit Phase(); // Use for APBC phases
+    ~Phase();
+    void PhaseGen(Float*);
+
+    void Add(fftComplex*);
+    void Subtract(fftComplex*);
+
+};
+
+#endif

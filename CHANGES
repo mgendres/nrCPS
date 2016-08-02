@@ -1,0 +1,952 @@
+v1_0_0 (date unknown)
+
+v1_0_1 (date unknown)
+
+v1_0_2 (date unknown)
+
+v1_0_3 (date unknown)
+
+v1_0_4 (date unknown)
+
+v1_0_5 (date unknown)
+
+-- Changed to Float precision.
+
+v1_0_6 (date unknown)
+
+-- Verbosity levels added.
+
+v1_0_7 (date unknown)
+
+-- Functionality to control verbosity levels via vml file added.
+
+v1_0_8 (date unknown)
+
+-- Renamed classes RNG->Random and RngArg->RandomArg to conform with naming conventions.
+
+v1_0_9 (date unknown)
+
+-- Some warnings and other minor things added.
+
+v1_0_10 (date unknown)
+
+-- Introduced EvoArg.
+
+v1_1_0 (date unknown)
+
+-- Introduced global parameters; major restructuring of code.
+
+v1_1_1 (date unknown)
+
+-- Anti-periodic boundary conditions added.
+
+v1_1_2 (date unknown)
+
+-- Minor changes to test programs; new test program added.
+
+v1_1_3 (date unknown)
+
+-- Code for computing momenta up to the fermi surface added.
+
+v1_1_4 (date unknown)
+
+-- Minor changes to test programs.
+
+v1_1_5 (date unknown)
+
+-- Revised unpolarized fermi gas test code; unpolarized_prd and unpolarized_aprd now obsolete.
+
+v1_1_6 (date unknown)
+
+-- Minor changes to GlobalJobParameter.
+
+v1_1_7 (date unknown)
+
+-- Harmonic trap potential added.
+
+v1_1_8 (date unknown)
+
+-- Added MomentaArg and associated vml file; fermi energy in Momenta no longer scaled so that M=1.
+
+v1_1_9 (date unknown)
+
+-- Added test code unpolarized+1 for N+1 ups and N down spins.
+
+v1_2_0 (date unknown)
+
+-- Lattice class now represents a single field.A separate instance of Lattice is required for each auxiliary field introduced.
+
+-- Some restructuring of *Arg classes.
+
+-- SplitPointInteraction class introduced as well as SplitPointYukawa and SplitPointPotential, which are derived from it. A list of the desired interactions are now passed to FermionProp::Run() function.
+
+-- FermionArg class is now obsolete
+
+-- Interaction strengths are now passed to SplitPointYukawa and SplitPointPotential via SplitPointYukawaArg and SplitPointPotentialArg.
+
+-- The fermion mass is temporarily stored in CgArg.
+
+v1_2_1 (date unknown)
+
+-- Added test code few_fermions for measuring 2 and 2+1 fermion systems.
+
+v1_2_2 (date unknown)
+
+-- Removed test code few_fermions for measuring 2 and 2+1 fermion systems; replaced with slater_mat test code. With this test code, fermion contractions are performed off-line. This allows for using Luescher-Wolff techniques, etc.
+
+v1_2_3 (date unknown)
+
+-- Different oscillator frequencies now allowed for each spatial direction.
+
+v1_2_4 (09/05/2009)
+
+--Added test code overlap to check that wave functions in fermion_prop and one_body are orthonormal (POS and MOM) or orthonormal in the large volume and continuum limits (SHO)
+
+--Added FermionProp::Run() in order to create an "unevolved" source; this is useful for checking overlaps as in the overlap test code
+
+--Added the special function HermiteH(int, Float)
+
+--Added the SHOWaveFunction(Float*, int*, Float*)
+
+--Added SHO option for FermionProp and OneBody
+
+--Modified PropArg and OneBodyArg to include lambda1, lambda2 and lambda3 paramters; updated test program vml files appropriately
+
+v1_2_5 (09/12/2009)
+
+-- Added WaveFunctionArg class
+
+-- Added HermiteH(Float*, int, Float)
+
+-- Added WaveFunctione class (replaces older wave_function.h/C)
+
+-- Delete OneBody (obsolete)
+
+-- Deleted source info from FermionPropArg
+
+-- Deleted source creation from FermionProp
+
+-- Deleted FermionProp::Run() (not needed now that Source class exists)
+
+-- Added wave_function test program (replaces overlap test program)
+
+-- Deleted overlap test program
+
+-- Deleted unpolarized and unpolarized+1 test functions. These are replaced by slater_mat
+
+-- Changes normalizations on TwoBody and ThreeBody
+
+v1_2_6 (09/15/2009)
+
+-- Bug in WaveFunction::Set(Float) fixed: n1_max, n2_max and n3_max must be less than or equal to x_sites, y_sites and z_sites.
+
+v1_2_7 (09/21/2009)
+
+-- Fixed segmentation fault when sites not a multiple of 2 (INVERSION_METHOD_FFT and SOURCE_TYPE_MOM). Program now quits with an error message.
+
+-- Moved center of potential to L/2 rather than 0
+
+-- Added SplitPointGradientArg class
+
+-- Added SplitPointGradient class
+
+v1_2_8 (09/27/2009)
+
+-- Fixed major bugs and tested SplitPointGradient
+
+-- Changed SplitPointYukawaArg and SplitPointGradientArg to allow complex couplings
+
+-- Changed SplitPointYukawa and SplitPointGradient to allow complex couplings
+
+-- Added SplitPointLaplacianArg class
+
+-- Added SplitPointLaplacian class
+
+-- Added two_body_all_couplings test program
+
+v1_2_9 (10/01/2009)
+
+-- Added FermionOpArg
+
+-- Moved mass from CgArg to FermionOpArg
+
+-- Added Harmionic potential to D (CG version)
+
+-- Added exit if FFT and Harmonic potentia are both used (incompatible)
+
+v1_2_10 (10/26/2009)
+
+-- Implemented SplitPointLaplacian
+
+v1_3_0 (11/09/2009)
+
+-- Added enum PotentialType
+
+-- Added potential_type in SplitPointPotentialArg
+
+-- Calculate potential in contructor of SplitPointPotential
+
+-- Allow linear and exponential discretizations of potential in SplitPointPotential (exponential not implemented yet)
+
+v1_3_1 (11/15/2009)
+
+-- EXP SplitPointPotential discretization implemented.
+
+-- Dispersion class computes the dispersion relation in the constructor, and is saved in memory. Dispersion::Get(coords) retrieves value.
+
+-- Added DISPERSION_TYPE_P4IMP and DISPERSION_TYPE_QUADRATIC to enum.h
+
+-- P4IMPROVED dispersion relation added to Dispersion class.
+
+-- dispersion_type added to fermion_op_arg
+
+-- Different dispersion relations implemented in FermionOp
+
+v1_3_2 (11/16/2009)
+
+-- Fixed bug in SplitPointPotential error boundary condition error checking
+
+-- DISPERSION_TYPE_QUADRATIC implemented in Dispersion class
+
+v1_3_3 (11/17/2009)
+
+-- DISPERSION_TYPE_QUADRATIC fixed so that the cut-off is at |p| = Pi (a sphere, rather than a cube)
+
+v1_3_4 (11/20/2009)
+
+-- free_gas test program added
+
+-- Added DetType to enum.h
+
+-- Added functionality to control determinant type (standard or complex log) in SlaterDet. Set by class function SetDetType().
+
+-- trapped_gas test program added
+
+v1_3_5 (12/03/2009)
+
+-- mass argument added to constructor of Dispersion class; dispersion normalized by mass
+
+-- mass normalization removed from FermionOp::SolveFFT(...) and Momenta::Momenta(...)
+
+-- DISPERSION_TYPE_PERFECT added; perfect dispersion relation added to Dispersion class
+
+v1_3_6 (12/10/2009)
+
+-- MomentaArg fixed to accept all dispersion relations
+
+-- bugs in momenta test program fixed
+
+-- added some args checks in slater_det test program
+
+-- added some args checks in slater_det2 test program
+
+-- added some args checks in slater_mat test program
+
+-- added some args checks in free_gas test program
+
+-- added some args checks in trapped_gas test program
+
+v1_3_7 (12/10/2009)
+
+-- Minor changes to DISPERSION_RELATION_PERFECT and DISPERSION_RELATION_QUADRATIC in Dispersion class.
+
+-- Deleted hidden directories created by my stupid mac 
+
+v1_3_8 (12/22/2009)
+
+-- Moved InnerProduct function from fermion_op.C to utils.C
+
+-- Renamed "vml" files as "arg" files (vml is a mark-up language used in CPS, but was never implemented here)
+
+v1_3_9 (12/30/2009)
+
+-- Added ran0, ran3 random number generators
+
+-- Checks added in Random::Random(RandomArg) to ensure input seed is negative
+
+-- Random test program added
+
+v1_4_0 (01/06/2010)
+
+-- Updated compilation scripts
+
+-- Introduced UniformDeviates base class from which ran0, ran2, ran3, etc. are derived
+
+-- Implemented luscher's ranlxs and ranlxd random generator in UniformDeviates classes
+
+-- Introduced a ranlx test program
+
+-- Modified random class to allow specification of random generator at run time
+
+-- Introduced uniform_deviates test funcion
+
+-- Introduced enum SeedType SEED_TYPE_DEFAULT
+
+-- Introduced enum RandomType = { RAN0, RAN1, RAN2, RAN3, RANLXS0, RANLXS1, RANLXS2, RANLXD1 RANLXD2 }
+
+-- Updated all test program arg files
+
+v1_4_1 (01/06/2010)
+
+-- Added I/O routines for UniformDeviates class
+
+v1_4_2 (01/06/2010)
+
+-- Added some error checking to random generator code.
+
+v1_4_3 (01/09/2010)
+
+-- Introduced constants.h header file
+
+-- Introduced test program slater_prec_test (used to compare slater det algorithm with an external program such as Mathematica)
+
+-- Introduced test program ludcmp_test
+
+v1_4_4 (01/13/2010)
+
+-- Added dispersion_type1 and dispersion_type2 to TwoBodyArg
+
+-- Added dispersion relations to TwoBody class
+
+-- Update two_body.arg in all test programs
+
+-- Fixed funny sign issue with TwoBody results
+
+-- Introduced test program one_body2
+
+v1_4_5 (01/15/2010)
+
+-- Merged one_body and one_body2 test programs
+
+-- one_body test program modified so that configurations are accumulated
+
+-- two_body test program modified so that configurations are accumulated
+
+-- two_body_all_interactions test program modified so that configurations are accumulated
+
+-- three_body test program modified so that configurations are accumulated
+
+-- slater_det test program modified so that configurations are accumulated
+
+-- slater_det2 test program modified so that configurations are accumulated; bugs fixed
+
+-- slater_mat test program modified so that configurations are accumulated; bugs fixed
+
+v1_4_6 (01/21/2010)
+
+-- Added 9th level SHO state to slate_mat/sho_sources~
+
+-- Positioned harmonic potential in the center of unit cell (required modification of SplitPointPotental and WaveFunction classes)
+
+v1_4_7 (01/21/2010)
+
+-- Added a sho test function for studying the L/(2 L0) dependence of the lowest energy states.
+
+-- Added clarifying notes to TwoBody class, which better explain the ground state wave function.
+
+-- Renamed SplitPointInteraction class SplitPoint
+
+-- Renamed FermionProp class Propagator
+
+v1_4_8 (01/29/2010)
+
+-- Rewrote D operator so that APBCs can be implemented
+
+-- Implemented APBCs in FermionOp (CG method)
+
+-- APBCphase function for using APBCs
+
+-- Fix APBC Fourier transform
+
+-- Fixed backward conventions for FFT and Inverse FFT
+
+-- Added APBCs to SplitPointLaplacian
+
+-- Added SplitPointCoulombPotentialArg class
+
+-- Centered OnSite Harmonic trap on unit cell
+
+-- Fixed minor bug in Momenta class: E -> log(1+E)
+
+v1_4_9 (02/02/2010)
+
+-- Added modificatiosn two TwoBodyArg, TwoBody classes for eta-dependent ground state
+
+v1_5_0 (02/06/2010)
+
+-- slater_det test program now saves momentum sources to a file
+
+-- Added c^2 (psi* del^2 psi)^2 interaction to slater_det2
+
+v1_5_1 (02/14/2010)
+
+-- Added INVERSION_METHOD_FFTCG to enum.h and PopArg class
+
+-- Renamed CgArg::stop_rsd to CgArg::tol
+
+-- Changed FermionOp::SolveCG(Float*, Float*) stopping condition to |r|/|b| < tol
+
+-- Added INVERSION_TYPE_FFTCG functionality to Propagator class.
+
+-- Modified FermionOpSolveFFT(Float*, Float*) so that ``in'' vector is not destroyed--needed for CG follow-up with INVERSION_TYPE_FFTCG.
+
+-- Added kappa_vs_energy test program
+
+-- Increased number of digits saved in slater_prec_mat test program
+
+v1_5_2 (02/21/2010)
+
+-- Normalized TwoBody ground state wave function
+
+-- Memory leak fixed in FermionOp::SolveFFT(Float*,Float*)
+
+-- slater_mat_low_mem test program added.
+
+v1_5_3 (02/22/2010)
+
+-- Rewrote Lattice, Propagator and SplitPoint classes so that memory use scales like V instead of V*T (lattice and propagator are only stored on a single time slice); updated all test programs accordingly
+
+-- Removed normalization of TwoBody ground state wave function
+
+-- Fixed minor bug in FFT: cannot compute true residual if dispersion_type is not DISPERSION_TYPE_STANDARD
+
+v1_5_4 (02/22/2010)
+
+-- Added PotentialForm to SplitPointPotential; updated all test programs appropriately
+
+v1_5_5 (02/23/2010)
+
+-- Added a new class called Fourier; included FFTW method to FermionOp, WaveFunction and TwoBody classes
+
+-- Added fourier_method option in DoArg.
+
+-- Add APBCs for the PERFECT and QUADRATIC dispersion relations
+
+v1_5_6 (03/01/2010)
+
+-- Added SplitPointInteractionArg class
+
+-- Added SplitPointInteraction class
+
+-- Removed SplitPointCoulombPotentialArg (obsolete)
+
+-- Removed eta from TwoBodyArg
+
+-- Added test programs two_body_all_int, slater_det_all_int and slater_mat_all_int which use SplitPointInteraction
+
+v1_5_7 (03/03/2010)
+
+-- Fixed small memory leak in Random class
+
+-- Fixed bug in constructor of Fourier
+
+v1_5_8 (03/04/2010)
+
+-- Added bool GlobalJobParameters::APBCQuery().
+
+-- Modified Fourier::Phases(Float) to skip if APBCQuery() is false (saves a significant amount of cpu time for PBCs)
+
+-- Added fftw clean-up to Fourier::~Fourier().
+
+-- Fixed Fourier::Phase() and Fourier::InversePhase() bottlenecks.
+
+-- Removed residual checking in FermionOp::SolveFFT().
+
+-- Fourier instance in two_body moved to constructor.
+
+v1_5_9 (03/05/2010)
+
+-- Minor optimization in FermionOp::SolveFFT(Float*, Float*)
+
+v1_6_0 (03/10/2010)
+
+-- Added check in GlobalJobParameters.Initialize(DoArg) that sites is multiple of two.
+
+-- Added hermite test function
+
+-- Added #define PREC; updated test programs
+
+-- Added slater_det2_all_int test function
+
+-- Fixed incorrect normalization of SHO wave functions in WaveFunction::Set()
+
+-- Rewrite WaveFunction class
+
+v2_0_0 (03/15/2010)
+
+-- SplitPointYukawa, SplitPointLaplacian and SplitPointInteraction now obsolete (removed).
+
+-- SplitPointYukawaArg, SplitPointLaplacianArg and SplitPointInteractionArg now obsolete (removed).
+
+-- CG functionality obsolete; CgArg obsolete (removed).
+
+-- enum InversionMethod obsolete (removed).
+
+-- FermionArg::spring_constant(1,2,3) obsolete (removed).
+
+-- DISPERSION_TYPE_P4IMP obsolete (removed).
+
+-- FermionOpArg obsolete (deleted); PropArg inherits FermionOpArg parameters.
+
+-- SOURCE_TYPE_POS obsolete (deleted).
+
+-- Fourier class obsolete (committed to FFTW libraries)
+
+-- enum FourierMethod obsolete (removed)
+
+-- Propagator class completely rewritten.
+
+-- SplitPoint classes completely rewritten.
+
+-- ThreeBody clas obsolete (removed)
+
+-- WaveFunction class rewritten in momentum space.
+
+-- TwoBody class rewritten in momentum space.
+
+-- Potential positioned around origin.
+
+-- Phase class introduced; APBCs reimplemented.
+
+-- Added Propagator::Normalize() class function
+
+-- Made FFTW plans and in/out vectors static members of SplitPoint()
+
+v2_0_1 (03/18/2010)
+
+-- Added WAVE_FUNC_TYPE_TGND to TwoBody class
+
+v2_0_2 (03/18/2010)
+
+-- Added slater_mat2 production code.
+
+v2_0_3 (03/21/2010)
+
+-- Normalized TwoBody wave function by volume factor
+
+-- Minor improvements to TwoBody::Run()
+
+-- Added TwoBody::Deform(string) class function
+
+-- Added TwoBody wave function WAVEFUNC_TYPE_PAIR1
+
+v2_0_4 (03/21/2010)
+
+-- Modified wave_function test program to test both OneBody and TwoBody classes
+
+-- Added slater_det2_for_amy production code
+
+v2_0_5 (03/26/2010)
+
+-- p^2 form of SplitPointInteraction operators obsolete; adopted David's M(1-1/xi^2) form.
+
+v2_0_6 (03/28/2010)
+
+-- Implemented MPI slater_det production code.
+
+v2_0_7 (03/29/2010)
+
+-- Minor changes to production code
+
+-- Adopted M (xi^2-1) form for the interaction
+
+v2_0_8 (03/30/2010)
+
+-- Added sign option in SplitPointInteraction constructor.
+
+-- Minor optimization to TwoBody class
+
+v2_0_9 (03/30/2010)
+
+-- Added InteractionType to enum.h and SplitPointInteractionArg
+
+-- Allow choice of interactions in SPlitPointInteraction
+
+-- Modified SlaterDet to allow 2N paired fermions or 2N+1 fermions.
+
+v2_1_0 (04/02/2010)
+
+-- Added class functions Momenta::NumShells() and Momenta::ShellCount(int)
+
+-- Added enum InteractionType INTERACTION_TYPE_NONE (but not implemented yet)
+
+-- Added print-out of information in Momenta class
+
+-- Added config.h
+
+-- Added compile and library info on Verbose::Verbose() (this is probably not be the best place for it, but it is fine for now)
+
+-- Improved slater_det2_trapped (formerly known as slater_det_2n) and added slater_det2_untrapped
+
+v2_1_1 (04/07/2010)
+
+-- Added communications layer
+
+-- Parallelized all production codes
+
+v2_1_2 (04/08/2010)
+
+-- Added RANDOM_TYPE_FILE and file_stem to RandomArg
+
+-- Added parallel Fread and Fwrite functions for binary file I/O.
+
+-- Added Random::ReadState(...) and Random::WriteState(...) class functions
+
+-- Added random generator checkpointing in production codes
+
+-- Added random state checks
+
+v2_1_3 (04/14/2010)
+
+-- Definition of Bsq changed in TwoBody PAIR1 wave function
+
+-- SplitPointPotential POTENTIAL_TYPE_EXP changed to: 1 - exp(-v)
+
+v2_1_4 (04/16/2010)
+
+-- Added int Fflush(FILE*) to sysio.[h]C; added to production code (forces output to be written to file after every configuration)
+
+v2_1_5 (04/20/2010)
+
+-- Minor changes
+
+v2_1_6 (04/27/2010)
+
+-- Added ranlib to createlib.sh
+
+-- Added parallelized version of Amy's small nuclei production code
+
+v2_2_0 (05/24/2010)
+
+-- Removed FFTW stuff from SplitPoint constructor
+
+-- Created Fourier namespace
+
+-- Added ComplexGauss to lattice type
+
+-- Added DoArg::cutoff
+
+-- updated test and production code do.arg files
+
+-- Added GlobalJobParameter::cutoff and GlobalJobParameter::CutofF()
+
+-- Added cutoff in Dispersion, SplitPointInteraction and TwoBody classes
+
+-- Fixed typo in slater_det2_untrapped main.C program name print-out
+
+
+v2_2_1 (05/25/2010)
+
+-- Added SplitPointInteraction2 class
+
+-- Moved instances of Phase class to the Fourier namespace
+
+-- Added enum type CutoffType
+
+v2_2_2 (07/27/2010)
+
+-- Fixed minor bugs in slater_det and slater_det2_untrapped production code
+
+-- Added improved time discretization for interactions
+
+-- Added discretization time step dt in SplitPoint constructors
+
+-- Updated all productioand test codes
+
+-- Renamed SplitPoint to Hamiltonian
+
+-- Renamed SplitPointPotential to Potential
+
+-- Renamed SplitPointInteraction to Interaction
+
+-- Renamed SplitPoint::Run(Float*) to SplitPoint::Evolve(Float*) (corresponds to an application of e^{-H_{K,P,I}} )
+
+-- Created KineticArg class
+
+-- Created Kinetic class
+
+-- Change PropagatorArg to contain a filename and number of species
+
+-- Modified Dispersion class to allow negative mass (needed for fourth ourder integrator where dt can be negative)
+
+-- Added OneBody::Set(Float*)
+
+-- Add test of Virial theorem to test program sho
+
+-- Added cutoff of 2 (1-Lambda) Pi to Interaction2 class, )where Lambda ~ [0,1] is the cutoff factor.
+
+v2_2_3 (09/23/2010)
+
+-- Fixed bug in dispersion class associated with hard cutoff: use inf rather than a max number (results in huge speed-up)
+
+-- Added run scripts for Hyak
+
+v2_2_4 (09/24/2010)
+
+-- Added Interactions class, which allows multiple interactions to be summed (i.e. two and three body interactions)
+
+-- Fixed small_nuclei production code
+
+v2_2_5 (10/08/2010)
+
+-- Added additional SHO sources to slater_det2_trapped* production codes
+
+-- Included Amy's modifications to slater_det2_trapped (separate main.C file)
+
+v2_2_6 (10/10/2010)
+
+-- Updated CHANGES to include very old versions
+
+-- Added print-out of time in production code (start and after each config)
+
+-- Added David's new tuning interaction
+
+v2_2_7 (10/21/2010)
+
+-- Added performance scripts
+-- Added O(dt) version of potential discretization for trapped fermions (enabled via a compiler directive in slater_det2_untrapped/main.C)
+
+v2_2_8 (10/27/2010)
+
+-- Added omega and L0 scan script for sho test program
+
+v2_2_9 (10/28/2010)
+
+-- Added dbl2flt.sh script for converting code from Float precision to single precision. Note that even after conversion you nee to compile a single precision version of the FFTW libraries!
+
+v2_3_0 (10/31/2010)
+
+-- Added branched version of two_body production code
+-- Added branched scan scripts
+
+v2_3_1 (11/16/2010)
+
+-- Added constant FLUSHRATE which controls how often file i/o buffer is flushed.
+-- Added vector global sum code
+-- Rewrote all the retarded parts of small_nuclei production code
+-- Fixed bugs in old slater_det2_trapped cumulant code
+-- Rewrote all the retarded parts of slater_det2_trapped cumulant code: number of cumulants Nc is now variable (includes zero)
+
+v2_3_2 (12/05/2010)
+
+-- Fixed bug in non-MPI version of Comms::GlobalSum(complex<Float>)
+-- Updated all production codes
+
+v2_3_3 (12/18/2010)
+
+-- Added Cuda namespace and cuda_utils
+
+v2_3_4 (12/19/2010)
+
+-- Added additional infrastructure for cuda-based implamentation
+
+v2_3_5 (12/19/2010)
+
+-- Added typedef Float which allows easy switching between single and double precision
+-- Implemented cuda version of TwoBody::Run()
+
+v2_3_6 (12/21/2010)
+
+-- Organized source code directory structure
+-- Implemented cuda version of Onebody::Evolve()
+
+v2_3_7 (01/05/2011)
+
+-- Resolved bugs in TwoBody constructor
+-- Removed unnecessary cuda code in TwoBody::Deform(...) class function
+-- Implemented cuda version of Kinetic::Evolve(...)
+
+v2_3_8 (01/10/2011)
+
+-- Cleaned up compile scripts
+-- Implemented cuda version of Fourier class
+
+v2_3_9 (01/11/2011)
+
+-- Implemented cuda verions of Potential::Evolve(...)
+-- Implemented cuda verions of Interaction3::Evolve(...)
+
+v2_4_0 (01/13/2011)
+
+-- Minor modifications to config.h
+-- Added hamiltonian_performance test code
+-- Changes two_body_class to two_body_performance; added timing code; similar change to one_body_class.
+
+v2_4_1 (01/15/2011)
+
+-- Minor change to ranlxd to address precision issue
+
+v2_4_2 (01/18/2011)
+
+-- Minor changes to Kinetic class
+-- Monor changes to Potential class
+-- Created the virtual function Hamiltonian::Initialize()
+-- Added Hamiltonian::Initialize() to production codes (reduces the number of FFTs of the lattice when many propagators are involved to just one)
+-- Completed cuda implementation of most Hamiltonian derived classes
+
+v2_4_3 (01/18/2011)
+
+-- Minor changes to config.h
+-- Added CUDA_SAFE_CALL in cuda_utils.C
+
+v2_4_4 (01/26/2011)
+
+-- Added missing header files in source code; system now compiles on the Dirac GPU testbed cluster
+-- Added comilation instruction for Dirac in README
+
+v2_4_5 (01/26/2011)
+
+-- Interaction and Interaction2 classes obsolete; renamed Interaction3 to Interaction
+-- Reimplimented Fourier, Propagator and Hamiltonian classes to support batch FFTs (should result in a speed-up)
+-- NOARCH version of the code is currently broken due to the reimplementation (will fix in a future version)!
+
+v2_4_6 (01/27/2011)
+
+-- Improved error catching in cuta_utils.h
+-- Updated more production codes
+
+v2_4_7 (01/31/2011)
+
+-- Implemented double precision capability for Fermi cards
+-- Fixed NOARCH version (APBCs remain disabled, however)
+-- Minor changes to hamiltonian/cuda/cuda_kernels.cu
+
+
+v2_4_8 (02/01/2011)
+
+-- Minor changes to compilation scripts and TwoBody class
+
+v2_4_9 (02/02/2011)
+
+-- Added HostAlloc() and FreeHost() functions to Cuda name space
+-- Added improved sho test program scripts
+-- char* fname -> const char* fname
+-- several "improved" implementations of TwoBody::Run(...) 
+
+v2_5_0 (02/15/2011)
+
+-- added Cuda::InnerProduct(...) function
+
+v2_5_1 (02/15/2011)
+
+-- Implemented faster Slater matrix construction in SlaterDet2 class
+
+v2_5_2 (02/15/2011)
+
+-- Added slater_det_performance test program.
+-- Reverted SlaterDet2 class to slower version; incomplete implementation of a new SlaterDet3 class 
+
+v2_5_3 (02/17/2011)
+
+-- Completed implementation of SlaterDet3 class and created test production code slater_det3-trapped
+
+v2_5_4 (02/24/2011)
+
+-- Fixed potential bug in sysfunc.C relating to double vs. single precision
+-- Fixed bug in OneBody::Set(string)
+-- Rewrote one_body_project kernel
+
+v2_5_5 (02/25/2011)
+
+-- Fixed a bug associated with noarch/single precision combination. This combination now requires a single precision compilation of the fftw library
+
+v2_5_7 (04/27/2011)
+
+-- Added four-body production code for high precision coparison with D. Lee, et al.
+
+v2_5_8 (06/15/2011)
+
+-- Moved Dirac run scripts to ./scripts/run/dirac/
+-- Improved Arg classes, args now passed by reference
+-- Fixed broken test programs
+-- Deleted four_body production, replaced with few_body production code
+-- Added Lattice::Average() class function
+-- Added support for long double precision
+-- Added operator[] function to lattice class
+-- Added Normal and LogNormal distributed random numbers
+
+v2_5_9 (07/08/2011)
+
+-- Changes i++ -> ++i (supposedly faster?)
+-- Made copy constructors and operator= private for classes where these should be dissallowed
+-- Added xArg::xArg(std::string) constructor to avoid having to call Decode(std::string) after instantiation of xArg
+-- Added explict to all constructors (prevents unwanted type conversions)
+-- Changed Lattice::Average() -> Lattice::Mean()
+-- Added Lattice::Variance()
+-- Added Lattice::Refresh(complex<Float>)
+-- Added Lattice::Refresh(Float*)
+
+v2_6_0 (07/30/2011)
+
+-- Added toy_model test program
+
+v2_6_1 (08/29/2011)
+
+-- Added Vector3 class
+-- Added Vector3 helper functions
+-- Added vector3 test program
+-- Added OhGroup class
+
+v2_6_2 (08/29/2011)
+
+-- Minor improvements to Vector3 and OhGroup classes
+-- Added oh_group test program
+-- Added two_body_proj test program
+
+v2_6_3 (08/30/2011)
+
+-- Used Vector3ToIndex/IndexToVecto3 functions in TwoBody and OneBody  constructors... consequently fixed minor bugs when coordinates are out of range.
+
+v2_6_4 (08/31/2011)
+
+-- Improved OhGroup constructor, only considers unique vectors rather than all 48.
+
+v2_6_5 (08/31/2011)
+
+v2_6_6 (08/31/2011)
+
+-- Added GeneralizedTwoBodyArg class
+-- Remove WAVEFUNC_TYPE_GND in GeneralizedTwoBody class
+-- Cleaned up Dispersion constructor
+-- Introduced IndexToVector3(const Vector3&, const Vector3&) and  Vector3ToIndex(const Vector3&, const Vector3&) helper functions; thes should eventually replace IndexToVector3(const Vector3&) and Vector3ToIndex(const Vector3&)
+-- Added some additional Vector3 funcitons like /= , / etc..
+-- Rewrote GeneralizedTwoBody constructor
+
+v2_6_7 (08/31/2011)
+
+-- Fixed bugs in GeneralizedTwoBody constructor
+
+v2_6_8 (09/11/2011)
+
+-- Added l = 0-6 and  9 angular momentum sinks to few_body_proj_R production code. 
+
+v2_6_9 (09/15/2011)
+
+-- Added OneBody::Set(const Vector3&, OctahedralRep)
+
+v2_7_0 (09/24/2011)
+
+-- Added mass parameter to InteractionArg
+-- Modified Hamiltonian::Interaction constructor
+
+v2_7_1 (09/29/2011)
+
+-- Added transfer_matrix test programs for N=3 and N=4
+
+v2_7_1 (09/29/2011)
+
+-- Added transfer_matrix test programs for N=2
+-- Made some modifications to OhGroup constructor
+-- Fixed minor bugs, confirmed N=2, N=3 eigevalues, and N=4 GS eigenvalue
+
+v2_7_2 (10/14/2011)
+
+-- Nore bug fixed to transfer_matrix test programs
+
+v2_7_3 (10/15/2011)
+
+-- Memory mapped transfer matrix test program added
+
+v2_7_4 (10/17/2011)
+
+-- Modified oh_group to support reduced and unreduced 

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SRCDIR=../../
+BUILDDIR=../../
+FFTWDIR=$HOME/libraries/lfftw-3.2.2
+
+CXX=mpicxx
+
+LDFLAGS="-L$FFTWDIR/lib"
+CXXFLAGS="-O2 -Wall -DMPICH_IGNORE_CXX_SEEK"
+ARFLAGS=
+
+INCLUDE_FLAGS="-I$SRCDIR/include -I$FFTWDIR/include"
+
+MAIN=$1
+$CXX $CXXFLAGS $MAIN $BUILDDIR/nrCPS.a $LDFLAGS $INCLUDE_FLAGS -lfftw3l
