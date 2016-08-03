@@ -1,0 +1,5 @@
+*.nb linguist-language=C++
+*/*.nb linguist-language=C++
+*/*/*.nb linguist-language=C++
+*/*/*.nb linguist-language=C++
+*/*/*/*.nb linguist-language=C++
